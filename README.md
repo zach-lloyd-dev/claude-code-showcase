@@ -277,7 +277,7 @@ This comes from 5 years of coaching people through behavior change: the best sys
 
 ## About
 
-I'm Zach Lloyd, founder of [Black Sheep Systems](https://blacksheepsystems.ai), an AI automation consultancy. I build autonomous systems for small business owners using Claude Code, n8n, Playwright, and TypeScript.
+I'm Zach Lloyd, founder of [Black Sheep Systems](https://zach-lloyd.com), an AI automation consultancy. I build autonomous systems for small business owners using Claude Code, n8n, Playwright, and TypeScript.
 
 Previously: 5 years as a fitness coach and gym owner, where I learned that sustainable systems beat flashy solutions every time. That philosophy drives everything I build.
 
