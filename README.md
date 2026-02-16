@@ -14,6 +14,7 @@ Grab these and drop them into your Claude Code setup:
 |-------|-------------|--------|
 | **Session Handoff** | Saves context before resetting. Updates PROGRESS.md, NEXT_STEPS.md, writes RESUME.md | [`skills/session-handoff/`](skills/session-handoff/SKILL.md) |
 | **Resume Session** | Loads saved context and gets you back to work in seconds | [`skills/resume/`](skills/resume/SKILL.md) |
+| **Em Dash Destroyer** | Finds and replaces every em dash with better punctuation. Instant AI-writing cleanup | [`skills/em-dash-destroyer/`](skills/em-dash-destroyer/SKILL.md) |
 | **Global Settings Template** | Production-ready `~/.claude/CLAUDE.md` with verification rules, anti-patterns, security defaults | [`templates/global-settings.md`](templates/global-settings.md) |
 
 **Installation:** Copy the skill folders to `~/.claude/skills/` and the template to `~/.claude/CLAUDE.md`. Customize for your projects.
