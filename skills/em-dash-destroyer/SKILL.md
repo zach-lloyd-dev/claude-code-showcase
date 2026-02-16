@@ -27,7 +27,9 @@ Trigger phrases: `/em-dash-destroyer`, "remove em dashes", "cleanup dashes", "de
 
 ## Installation
 
-Copy this folder to `~/.claude/skills/em-dash-destroyer/` and it activates automatically via trigger phrases.
+**Claude Code:** Copy this folder to `~/.claude/skills/em-dash-destroyer/` and it activates automatically via trigger phrases.
+
+**ChatGPT, Gemini, or any other LLM:** See [`UNIVERSAL.md`](UNIVERSAL.md) for a copy-paste prompt version that works everywhere.
 
 ## Process
 
