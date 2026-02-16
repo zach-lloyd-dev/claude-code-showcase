@@ -6,6 +6,20 @@ Architecture patterns, agentic workflows, and real-world production examples bui
 
 ---
 
+## Open Source Skills & Templates
+
+Grab these and drop them into your Claude Code setup:
+
+| Asset | What It Does | Get It |
+|-------|-------------|--------|
+| **Session Handoff** | Saves context before resetting. Updates PROGRESS.md, NEXT_STEPS.md, writes RESUME.md | [`skills/session-handoff/`](skills/session-handoff/SKILL.md) |
+| **Resume Session** | Loads saved context and gets you back to work in seconds | [`skills/resume/`](skills/resume/SKILL.md) |
+| **Global Settings Template** | Production-ready `~/.claude/CLAUDE.md` with verification rules, anti-patterns, security defaults | [`templates/global-settings.md`](templates/global-settings.md) |
+
+**Installation:** Copy the skill folders to `~/.claude/skills/` and the template to `~/.claude/CLAUDE.md`. Customize for your projects.
+
+---
+
 ## What's Here
 
 ### 1. Agentic Workflow Patterns
