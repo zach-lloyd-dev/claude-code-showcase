@@ -2,6 +2,7 @@
 name: em-dash-destroyer
 description: "Remove em dashes from written content and replace with better punctuation. Use when: done writing, cleanup pass, remove em dashes, fix dashes, polish content, edit content, content review, post-writing cleanup, AI writing cleanup"
 version: 1.0.0
+author: Black Sheep Systems
 ---
 
 # Em Dash Destroyer
@@ -24,12 +25,6 @@ Trigger phrases: `/em-dash-destroyer`, "remove em dashes", "cleanup dashes", "de
 - Mid-draft (finish writing first, clean up after)
 - On code files (em dashes don't appear in code)
 - On content where em dashes are intentionally used for brand voice
-
-## Installation
-
-**Claude Code:** Copy this folder to `~/.claude/skills/em-dash-destroyer/` and it activates automatically via trigger phrases.
-
-**ChatGPT, Gemini, or any other LLM:** See [`UNIVERSAL.md`](UNIVERSAL.md) for a copy-paste prompt version that works everywhere.
 
 ## Process
 
