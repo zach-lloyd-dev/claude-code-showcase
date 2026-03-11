@@ -3,27 +3,23 @@
 > **Context Reset Helper** - Capture learnings, update progress files, and generate resume prompt
 
 ## Purpose
-
 When you need to reset context (context window full, switching tasks, ending session), this skill:
 1. **Captures learnings** - What did we discover about working together?
 2. Updates PROGRESS.md with what was accomplished
 3. Updates NEXT_STEPS.md with current status and next actions
-4. Generates a comprehensive resume prompt for the next context window
+4. Generates a comprehensive resume file for the next context window
 
 **Important**: Context reset does not mean end of day. This runs anytime context needs to reset.
 
 ## Trigger Keywords
-
 - "session handoff"
 - "context reset"
-- "prepare handoff"
 - "end session"
-- "progress next" (shorthand)
+- "progress next"
 
 ## Process
 
 ### Step 0: Capture Learnings
-
 Before doing file updates, ask:
 
 > "Quick check before we wrap up:
@@ -31,13 +27,11 @@ Before doing file updates, ask:
 > 2. Any communication preferences I should remember?
 > 3. Anything that got you unstuck that's worth documenting?"
 
-If yes to any:
-- Offer to update the relevant context file (CLAUDE.md, MEMORY.md, or project-specific docs)
+If yes to any, offer to save those notes in the project folder or a preferences file.
 
-Keep this FAST. If nothing to add, move on.
+Keep this FAST - don't let it become a blocker. If nothing to add, move on.
 
 ### Step 1: Gather Session Summary
-
 Ask or infer:
 - What project are we working on?
 - What was accomplished this session?
@@ -46,8 +40,7 @@ Ask or infer:
 - Any critical context the next session needs?
 
 ### Step 2: Update PROGRESS.md
-
-Find the project's PROGRESS.md file and append:
+Find the project's PROGRESS.md file (in the current working directory or project folder) and append:
 
 ```markdown
 ---
@@ -83,8 +76,9 @@ Find the project's PROGRESS.md file and append:
 *Last updated: [Date] ([Session description])*
 ```
 
-### Step 3: Update NEXT_STEPS.md
+If PROGRESS.md doesn't exist, create it.
 
+### Step 3: Update NEXT_STEPS.md
 Update the header and current status section:
 
 ```markdown
@@ -111,11 +105,10 @@ Update the header and current status section:
 ## [Rest of existing content...]
 ```
 
+If NEXT_STEPS.md doesn't exist, skip this step.
+
 ### Step 4: Write RESUME.md
-
-**IMPORTANT**: Always write the resume prompt to a file so the user doesn't have to copy/paste.
-
-**Where to save:** Save RESUME.md in the folder where the work lives. If working at the repo root or across multiple projects, ask the user which context to save under.
+Save the resume file in the same folder as the project. This is the file that `/resume` will read next session.
 
 ```markdown
 # [PROJECT] - Resume Session
@@ -139,6 +132,11 @@ Update the header and current status section:
 - [Key status point 1]
 - [Key status point 2]
 
+## PRIORITIES
+1. [Priority 1]
+2. [Priority 2]
+3. [Priority 3]
+
 ## NEXT STEPS
 1. [ ] [Step 1]
 2. [ ] [Step 2]
@@ -147,7 +145,7 @@ Update the header and current status section:
 ## READ FIRST
 - [Path to NEXT_STEPS.md]
 - [Path to PROGRESS.md]
-- [Any other critical files]
+- [Any other critical files the next session should read]
 
 ## WORKING PATTERN REMINDERS
 - [Key reminder 1]
@@ -155,33 +153,31 @@ Update the header and current status section:
 
 ---
 
-**WHAT TO DO:** Pick ONE next step and execute it. Don't plan, just start.
+**WHAT TO DO:** Pick ONE next step and execute it. Don't plan - just start.
 ```
 
-### Step 5: Confirm Completion
+### Step 5: Confirm Handoff
 
-After writing all files, confirm with:
+After writing all files, confirm:
 
 ```
 Session handoff complete!
 
 Files updated:
-- `[location]/PROGRESS.md` - Session summary added
-- `[location]/NEXT_STEPS.md` - Status updated
-- `[location]/RESUME.md` - Resume prompt saved
+- PROGRESS.md - Session summary added
+- NEXT_STEPS.md - Status updated
+- RESUME.md - Resume prompt saved
 
-To resume next session: Run `/resume [context]`
+To resume next session: Type /resume or "pick up where I left off"
 
 Ready to reset context.
 ```
 
-**Note**: For non-project contexts, PROGRESS.md and NEXT_STEPS.md may not exist. That's fine. RESUME.md is the minimum requirement.
-
 ## Important Rules
 
-1. **Always save RESUME.md** - This is the minimum deliverable
-2. **Update PROGRESS.md and NEXT_STEPS.md if they exist** - For project folders
-3. **Include specific IDs/paths** - The next session needs concrete data, not abstractions
+1. **Always save RESUME.md** - This is the minimum requirement
+2. **Update PROGRESS.md and NEXT_STEPS.md if they exist** - Don't skip these
+3. **Include specific file paths** - The next session needs concrete data, not abstractions
 4. **Be comprehensive but concise** - Include everything needed, nothing extra
 5. **Use the existing format** - Match the style already in the files
-6. **Include READ FIRST section** - Tell next session exactly what to read
+6. **Include READ FIRST section** - Tell next session exactly what to read first
