@@ -10,14 +10,33 @@ Architecture patterns, agentic workflows, and real-world production examples bui
 
 Grab these and drop them into your Claude Code setup:
 
-| Asset | What It Does | Get It |
+| Skill | What It Does | Get It |
 |-------|-------------|--------|
-| **Session Handoff** | Saves context before resetting. Updates PROGRESS.md, NEXT_STEPS.md, writes RESUME.md | [`skills/session-handoff/`](skills/session-handoff/SKILL.md) |
-| **Resume Session** | Loads saved context and gets you back to work in seconds | [`skills/resume/`](skills/resume/SKILL.md) |
-| **Em Dash Destroyer** | Finds and replaces every em dash with better punctuation. Instant AI-writing cleanup | [`skills/em-dash-destroyer/`](skills/em-dash-destroyer/SKILL.md) |
-| **Global Settings Template** | Production-ready `~/.claude/CLAUDE.md` with verification rules, anti-patterns, security defaults | [`templates/global-settings.md`](templates/global-settings.md) |
+| **Skill Creator** | Build, test, and benchmark Claude Code skills. 6-phase loop: draft, eval, benchmark, review, iterate, optimize | [`skills/skill-creator/`](skills/skill-creator/) |
+| **48-Hour Intelligence Briefing** | Research any topic across 7 platforms (Reddit, X, YouTube, HN, etc). Two modes: Pulse (breaking news) and Signal (content edge) | [`skills/last48hours/`](skills/last48hours/) |
+| **Session Handoff** | Saves context before resetting. Updates PROGRESS.md, NEXT_STEPS.md, writes RESUME.md | [`skills/session-handoff/`](skills/session-handoff/) |
+| **Resume Session** | Loads saved context and gets you back to work in seconds | [`skills/resume/`](skills/resume/) |
+| **Em Dash Destroyer** | Finds and replaces every em dash with better punctuation. Instant AI-writing cleanup | [`skills/em-dash-destroyer/`](skills/em-dash-destroyer/) |
 
-**Installation:** Copy the skill folders to `~/.claude/skills/` and the template to `~/.claude/CLAUDE.md`. Customize for your projects.
+| Template | What It Does | Get It |
+|----------|-------------|--------|
+| **Global Settings** | Production-ready `~/.claude/CLAUDE.md` with verification rules, anti-patterns, security defaults | [`templates/global-settings.md`](templates/global-settings.md) |
+
+### Installation
+
+```bash
+# Copy any skill folder to your Claude Code skills directory
+cp -r skills/last48hours ~/.claude/skills/
+cp -r skills/em-dash-destroyer ~/.claude/skills/
+
+# Or grab them all at once
+cp -r skills/* ~/.claude/skills/
+
+# For the global settings template
+cp templates/global-settings.md ~/.claude/CLAUDE.md
+```
+
+Customize for your projects. Each skill has its own `SKILL.md` with trigger keywords and usage instructions.
 
 ---
 
@@ -277,16 +296,15 @@ This comes from 5 years of coaching people through behavior change: the best sys
 
 ---
 
-## Learn These Patterns
+## Community
 
-**[Claude Code Starter Kit](https://zach-lloyd.kit.com/ddc15304ae):** Battle-tested CLAUDE.md templates, pre-built skills, folder blueprints, and best practices documentation. Everything in this showcase, packaged for you to copy-customize-ship.
+These skills are part of the **[Zero to Automated](https://skool.com/zero-to-automated)** community, where we build real AI automations and share what works. The Vault on Skool has additional skills, templates, and playbooks.
 
 ---
 
 ## Related Projects
 
-- **[AAA Authority Acceleration](https://github.com/zach-lloyd-dev/aaa-authority-acceleration):** 23 modular Claude Code skills for content automation. 13 stars, MIT licensed.
-- **[Gym Lead Chatbot](https://github.com/zach-lloyd-dev/gym-lead-chatbot):** AI-powered lead qualification widget built with Claude.
+- **[AAA Authority Acceleration](https://github.com/zach-lloyd-dev/aaa-authority-acceleration):** 23 modular Claude Code skills for content automation. MIT licensed.
 
 ---
 

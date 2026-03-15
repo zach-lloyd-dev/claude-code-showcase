@@ -1,0 +1,89 @@
+"""Caching with 4-hour TTL for last48hours (48h window needs fresh data)."""
+
+import hashlib
+import json
+import os
+import tempfile
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Optional, Tuple
+
+CACHE_DIR = Path.home() / ".cache" / "last48hours"
+DEFAULT_TTL_HOURS = 4
+
+
+def ensure_cache_dir():
+    global CACHE_DIR
+    env_dir = os.environ.get("LAST48_CACHE_DIR")
+    if env_dir:
+        CACHE_DIR = Path(env_dir)
+    try:
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    except PermissionError:
+        CACHE_DIR = Path(tempfile.gettempdir()) / "last48hours" / "cache"
+        CACHE_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def get_cache_key(topic: str, mode: str, depth: str) -> str:
+    now = datetime.now(timezone.utc)
+    # Include 4-hour window block in key so cache auto-expires
+    window = f"{now.year}-{now.month}-{now.day}-{now.hour // 4}"
+    key_data = f"{topic}|{mode}|{depth}|{window}"
+    return hashlib.sha256(key_data.encode()).hexdigest()[:16]
+
+
+def get_cache_path(cache_key: str) -> Path:
+    return CACHE_DIR / f"{cache_key}.json"
+
+
+def is_cache_valid(cache_path: Path, ttl_hours: int = DEFAULT_TTL_HOURS) -> bool:
+    if not cache_path.exists():
+        return False
+    try:
+        mtime = datetime.fromtimestamp(cache_path.stat().st_mtime, tz=timezone.utc)
+        age_hours = (datetime.now(timezone.utc) - mtime).total_seconds() / 3600
+        return age_hours < ttl_hours
+    except OSError:
+        return False
+
+
+def load_cache(cache_key: str) -> Optional[dict]:
+    cache_path = get_cache_path(cache_key)
+    if not is_cache_valid(cache_path):
+        return None
+    try:
+        with open(cache_path, "r") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+def load_cache_with_age(cache_key: str) -> Tuple[Optional[dict], Optional[float]]:
+    cache_path = get_cache_path(cache_key)
+    if not is_cache_valid(cache_path):
+        return None, None
+    try:
+        mtime = datetime.fromtimestamp(cache_path.stat().st_mtime, tz=timezone.utc)
+        age = (datetime.now(timezone.utc) - mtime).total_seconds() / 3600
+        with open(cache_path, "r") as f:
+            return json.load(f), age
+    except (json.JSONDecodeError, OSError):
+        return None, None
+
+
+def save_cache(cache_key: str, data: dict):
+    ensure_cache_dir()
+    try:
+        with open(get_cache_path(cache_key), "w") as f:
+            json.dump(data, f)
+    except OSError:
+        pass
+
+
+def clear_cache():
+    if CACHE_DIR.exists():
+        for f in CACHE_DIR.glob("*.json"):
+            try:
+                f.unlink()
+            except OSError:
+                pass

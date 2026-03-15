@@ -1,0 +1,14 @@
+# Last 48 Hours - User Profile
+# Edit anytime, or run /last48 --setup
+#
+# Every field is optional. More answers = better personalization.
+# Skipped fields are stored as null and ignored.
+
+role: "AI automation consultant"        # Your job title / role
+industry: "AI/automation for small business"  # Your niche or industry
+audience: "non-technical small business owners"  # Who you create content for
+platforms: [linkedin, x, youtube]       # Where you post content
+competitors: ["@competitor1", "competitor2"]  # People you watch for ideas
+goal: "all"                             # content_ideas | trends | competitive_intel | all
+created: "2026-03-13"
+updated: "2026-03-13"

@@ -1,0 +1,12 @@
+{
+  "name": "last48hours",
+  "version": "1.0.0",
+  "description": "48-Hour Intelligence Briefing - Pulse (breaking news) + Signal (content edge)",
+  "author": "Zero to Automated",
+  "license": "MIT",
+  "hooks": {
+    "SessionStart": {
+      "command": "cd ~/.claude/skills/last48hours && git fetch origin --quiet 2>/dev/null && LOCAL=$(git rev-parse HEAD 2>/dev/null) && REMOTE=$(git rev-parse origin/main 2>/dev/null) && [ \"$LOCAL\" != \"$REMOTE\" ] && echo 'last48hours update available: run git -C ~/.claude/skills/last48hours pull' || true"
+    }
+  }
+}
