@@ -14,6 +14,10 @@ Grab these and drop them into your Claude Code setup:
 |-------|-------------|--------|
 | **Skill Creator** | Build, test, and benchmark Claude Code skills. 6-phase loop: draft, eval, benchmark, review, iterate, optimize | [`skills/skill-creator/`](skills/skill-creator/) |
 | **48-Hour Intelligence Briefing** | Research any topic across 7 platforms (Reddit, X, YouTube, HN, etc). Two modes: Pulse (breaking news) and Signal (content edge) | [`skills/last48hours/`](skills/last48hours/) |
+| **YouTube Repurpose** | Paste a YouTube URL, get 4 content formats: TikTok script, LinkedIn post, X thread, newsletter section | [`skills/youtube-repurpose/`](skills/youtube-repurpose/) |
+| **TikTok Script Writer** | Voice-profiled scripts in 5 proven formats. One-time onboarding, then just describe topics | [`skills/tiktok-script-writer/`](skills/tiktok-script-writer/) |
+| **TikTok Analyzer** | Competitive research: metrics, transcript, engagement rate, hook/CTA identification from any TikTok URL | [`skills/tiktok-analyzer/`](skills/tiktok-analyzer/) |
+| **Email Optimizer** | 10-point email audit: subject lines, hook, mobile formatting, PS, CTA, skimmability | [`skills/email-optimizer/`](skills/email-optimizer/) |
 | **Session Handoff** | Saves context before resetting. Updates PROGRESS.md, NEXT_STEPS.md, writes RESUME.md | [`skills/session-handoff/`](skills/session-handoff/) |
 | **Resume Session** | Loads saved context and gets you back to work in seconds | [`skills/resume/`](skills/resume/) |
 | **Em Dash Destroyer** | Finds and replaces every em dash with better punctuation. Instant AI-writing cleanup | [`skills/em-dash-destroyer/`](skills/em-dash-destroyer/) |
